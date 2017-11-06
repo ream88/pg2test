@@ -1,21 +1,22 @@
 # Pg2test
 
-**TODO: Add description**
+## 1. Terminal
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pg2test` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:pg2test, "~> 0.1.0"}
-  ]
-end
+```sh
+iex --name foo@127.0.0.1 --cookie secret -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pg2test](https://hexdocs.pm/pg2test).
+```elixir
+Pg2test.Worker.members() |> Enum.count # => 1
+```
 
+## 2. Terminal
+
+```sh
+iex --name bar@127.0.0.1 --cookie secret -S mix
+```
+
+```elixir
+Node.ping(:"foo@127.0.0.1")
+Pg2test.Worker.members() |> Enum.count # => 2
+```
