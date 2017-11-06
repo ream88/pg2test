@@ -10,6 +10,7 @@ defmodule Pg2test.Application do
     children = [
       # Starts a worker by calling: Pg2test.Worker.start_link(arg)
       # {Pg2test.Worker, arg},
+      Pg2test.Worker
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
